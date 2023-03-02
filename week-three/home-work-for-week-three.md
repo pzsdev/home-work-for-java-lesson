@@ -50,7 +50,9 @@ JAVA_OPT="${JAVA_OPT} -XX:+PrintGCDetails -XX:+PrintGCTimeStamps - XX:+PrintGCDa
 
 **加压接口**：http://ip:9001/spu/goods/slow/10000023827800
 
-**JVM 数据收集环境**：五台阿里 VPS，4核 8 G配置 。一台服务器跑 Java 应用，另一台服务器跑 Jmeter 作为 Slave，第三台跑 MySQL，第四台跑 prometheus、Grafana、InfluxDB，第五台 Window Server 作为 Jmeter Master 收集加压数据，全部通过局域网进行通信。
+**JVM 数据收集环境**：五台阿里云 VPS，4核 8 G配置 。
+
+一台服务器跑 Java 应用，一台服务器跑 Jmeter 作为 Slave 节点，第三台跑 MySQL，第四台跑 Prometheus、Grafana、InfluxDB，第五台 Window Server 作为 Jmeter Master 控制和收集加压数据，全部通过局域网进行通信，内网带宽最高 10 Gbps。
 
 **压测计划**：梯度压测，1000、2000、3000 线程组，Ramp-up peiod 为 1S，Loop Count 为 1000，总请求数 600 0000。
 
