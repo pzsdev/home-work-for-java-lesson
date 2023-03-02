@@ -79,15 +79,45 @@ JAVA_OPT="${JAVA_OPT} -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDat
 
 ![](test-section-one-001.png)
 
+![](test-section-one-002.png)
+
+![](test-section-one-003.png)
+
 
 
 线程数、RT、TPS、吞吐量：
 
+![](test-section-one-004.png)
+
+![](test-section-one-005.png)
+
+![](test-section-one-006.png)
+
+
+
 GC 的统计信息、堆内存统计信息：
 
+![](test-section-one-007.png)
 
 
-## 2、响应时间优先策略下  JVM 设置及 GC 情况
+
+![](test-section-one-008.png)
+
+
+
+![](test-section-one-009.png)
+
+
+
+Arthas 工具：
+
+![](test-section-one-010.png)
+
+
+
+## 2、响应时间优先策略下  JVM 设
+
+置及 GC 情况
 
 ### 设置 JVM 参数：
 
