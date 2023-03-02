@@ -1,3 +1,5 @@
+
+
 home-work-for-week-three
 
 # 作业题：JVM 虚拟机实践题
@@ -56,13 +58,15 @@ JAVA_OPT="${JAVA_OPT} -XX:+PrintGCDetails -XX:+PrintGCTimeStamps - XX:+PrintGCDa
 
 ![](./week-three-test-plan.png)
 
-`![](./week-three-test-plan.png)`
+
+
+> 说明：此处三个场景使用同一台服务器，连续收集三次数据，采集数据时间顺序和标题顺序正好相反，先跑了 G1，再跑响应时间优先，最后跑的吞吐量优先，也就是先情况 3，然后 2，1是最后收集的。
 
 
 
 ## 1、吞吐量优先 JVM 设置及 GC 情况
 
-设置 JVM 参数：
+### 设置 JVM 参数：
 
 ```Bash
 # 吞吐量优先策略： 
@@ -75,13 +79,17 @@ JAVA_OPT="${JAVA_OPT} -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDat
 
 ![](test-section-one-001.png)
 
+
+
+整个过程，Java 应用服务器资源情况：
+
 ![](test-section-one-002.png)
 
 ![](test-section-one-003.png)
 
 
 
-线程数、RT、TPS、吞吐量：
+### 线程数、RT、TPS、吞吐量：
 
 ![](test-section-one-004.png)
 
@@ -91,7 +99,7 @@ JAVA_OPT="${JAVA_OPT} -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDat
 
 
 
-GC 的统计信息、堆内存统计信息：
+### GC 的统计信息、堆内存统计信息：
 
 ![](test-section-one-007.png)
 
@@ -105,15 +113,13 @@ GC 的统计信息、堆内存统计信息：
 
 
 
-Arthas 工具：
+### Arthas 工具数据：
 
 ![](test-section-one-010.png)
 
 
 
-## 2、响应时间优先策略下  JVM 设
-
-置及 GC 情况
+## 2、响应时间优先策略下  JVM 设置及 GC 情况
 
 ### 设置 JVM 参数：
 
@@ -130,9 +136,13 @@ JAVA_OPT="${JAVA_OPT} -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDat
 
 
 
+采集 Jmeter 数据：
+
 ![](test-section-two-002.png)
 
 
+
+整个过程，Java 应用服务器资源情况：
 
 ![](test-section-two-003.png)
 
@@ -170,7 +180,7 @@ JAVA_OPT="${JAVA_OPT} -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDat
 
 
 
-Arthas 工具：
+### Arthas 工具数据：
 
 ![](test-section-two-011.png)
 
@@ -194,6 +204,8 @@ JAVA_OPT="${JAVA_OPT} -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDat
 ![](test-section-three-001.png)
 
 
+
+采集 Jmeter 数据：
 
 ![](test-section-three-002.png)
 
