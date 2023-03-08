@@ -188,7 +188,7 @@ JAVA_OPT="${JAVA_OPT} -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDat
 
 
 
-## 3、全功能垃圾收集器时  JVM 设置及 GC 情况
+## 3、使用全功能垃圾收集器 G1 时  JVM 设置及 GC 情况
 
 ### 设置 JVM 参数：
 
