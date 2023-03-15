@@ -78,3 +78,80 @@
 **有序性**：程序代码按照先后顺序执行。影响有序性的一个因素就是指令重排。    
 
 **可见性**：当多个线程访问同一个变量时，一个线程修改这个变量的值，其他线程能够立即看得到修改后的值。    
+
+
+
+**题目3：** 
+
+**什么是死锁：**
+
+死锁是这样一种情形：多个线程同时被阻塞，它们中的一个或者全部都在等待某个资源被释放。由于线程被无限期地阻塞，因此程序不可能正常终止。
+
+
+
+**如何排查死锁**：
+
+演示死锁代码：
+
+```Java
+package org.hero.pzs;
+
+public class TestDeadLock {
+
+    private static Object obj1 = new Object();
+    private static Object obj2 = new Object();
+
+    public static void main(String[] args) {
+        new Thread(new Thread1()).start();
+        new Thread(new Thread2()).start();
+    }
+
+    private static class Thread1 implements Runnable {
+
+        @Override
+        public void run() {
+            synchronized (obj1) {
+                System.out.println("Thread1 拿到了 obj1 的锁！");
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                synchronized (obj2) {
+                    System.out.println("Thread1 拿到了 obj2 的锁！");
+                }
+            }
+
+        }
+    }
+
+    private static class Thread2 implements Runnable {
+
+        @Override
+        public void run() {
+            synchronized (obj2) {
+                System.out.println("Thread2 拿到了 obj2 的锁！");
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                synchronized (obj1) {
+                    System.out.println("Thread2 拿到了 obj1 的锁！");
+                }
+            }
+        }
+    }
+}
+```
+
+
+
+使用 jps + jstack 排查死锁：
+
+![](week-001.png)
+
+使用 arthas 排查死锁：
+
+![](week-002.png)
