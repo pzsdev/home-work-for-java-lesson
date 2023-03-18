@@ -57,4 +57,4 @@
 
 **代码位置为**：
 
-https://github.com/pzsdev/home-work-for-java-lesson-code 地址 heroicat 和 hero-app 目录下。
+https://github.com/pzsdev/home-work-for-java-lesson-code 地址 herocat 和 herocat-app 目录下。
